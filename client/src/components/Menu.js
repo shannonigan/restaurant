@@ -1,19 +1,27 @@
 import React from "react";
 import { Header, Button, Icon, } from "semantic-ui-react";
 
-const Menu = ({ id, name, deleteMenu, updateMenu }) => (
+const Menu = ({ id, name, deleteMenu, updateMenu, toggleClick }) => (
   <div style={styles.flex}>
     <div style={styles.flex}>
       <Header as="h2" style={{ marginLeft: "15px" }}> {name} </Header>
     </div>
   <Button
     icon
-    color="teal"
+    color="violet"
     size="tiny"
-    // onClick={() => toggleClick(id)}
+    onClick={() => toggleClick(id)}
     style={{ marginLeft:"15px", }}
     >
       <Icon name="caret square down"/>
+  </Button>
+  <Button
+    icon
+    color="teal"
+    size="tiny"
+    onClick={() => updateMenu(id)}
+    >
+      <Icon name="pencil alternate"/>
   </Button>
   <Button
     icon

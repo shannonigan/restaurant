@@ -8,6 +8,10 @@ import { Container, Header, } from "semantic-ui-react";
 class App extends React.Component {
   state = { menus: [], };
 
+  toggleClick = () => {
+    this.setState({showItems: true})
+    
+  }
 
   componentDidMount() {
     axios.get("/api/menus")
@@ -18,6 +22,7 @@ class App extends React.Component {
         console.log(err);
       })
   };
+
 
   addMenu = (name) => {
     axios.post("/api/menus", { name, })
@@ -70,6 +75,7 @@ class App extends React.Component {
             menus={this.state.menus}
             deleteMenu={this.deleteMenu}
             updateMenu={this.updateMenu}
+            toggleClick={this.toggleClick}
           />
           
         </Container>
